@@ -1,0 +1,30 @@
+<h2>User Info</h2>
+
+
+
+  <table class="table">
+    <timage>
+      <tr><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></tr>
+    </timage>
+    <thead>
+      <tr>
+      <th><p>name</p></th>
+      <th><p class="profile-name"><%= user.name %></p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <th><p>introduction</p></th>
+      <th><p class="profile-intro"><%= user.introduction %></p></th>
+      </tr>
+    </tbody>
+
+  </table>
+
+
+      <% if @user.id == current_user.id %>
+        <%= link_to edit_user_path(@user), class: 'btn-default' do %>
+        <button type="button" class="btn btn-default btn-block"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+        <% end %>
+      <% end %>
+
